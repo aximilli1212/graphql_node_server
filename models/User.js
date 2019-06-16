@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
         default:Date.now
     },
     favorites:{
-        type:[ongoose.Schema.Types.ObjectId],
+        type:[mongoose.Schema.Types.ObjectId],
         required:true,
         ref:'Post'
     }
