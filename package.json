@@ -1,24 +1,17 @@
 {
-  "name": "vue_graph",
+  "name": "fullstack-vue-graphql-starter",
   "version": "1.0.0",
-  "description": "Vue Share Practice",
-  "main": "index.js",
+  "description": "Starter for Full-Stack Vue-GraphQL-Apollo Projects",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js",
-    "client": "cd client && npm start"
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently --names \"server,client\" \"npm run server --silent\" \"npm run client --silent\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aximilli1212/graphql_node_server.git"
-  },
-  "keywords": [
-    "graphql"
-  ],
-  "author": "Aximilli",
+  "keywords": [],
+  "author": "Reed Barger",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.0.0-rc.7",
     "bcrypt": "^3.0.0",
     "dotenv": "^6.0.0",
     "graphql": "^0.13.2",
@@ -29,11 +22,5 @@
   "devDependencies": {
     "concurrently": "^3.6.0",
     "nodemon": "^1.18.1"
-  },
-  "bugs": {
-    "url": "https://github.com/aximilli1212/graphql_node_server/issues"
-  },
-  "homepage": "https://github.com/aximilli1212/graphql_node_server#readme"
+  }
 }
-
-
