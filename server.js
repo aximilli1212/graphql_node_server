@@ -3,13 +3,22 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 const path = require("path");
 
+
+
+// Import typeDefas and resolvers
 const filePath = path.join(__dirname, "typeDefs.graphql");
 const typeDefs = fs.readFileSync(filePath, "utf-8");
 const resolvers = require("./resolvers");
 
+
+// import Environment Variables & Mongoose Models
+
 require("dotenv").config({ path: "variables.env" });
 const User = require("./models/User");
 const Post = require("./models/Post");
+
+
+// Connect to MLab Database -- using connection url in Variables File
 
 mongoose
   .connect(
@@ -18,6 +27,9 @@ mongoose
   )
   .then(() => console.log("DB connected"))
   .catch(err => console.error(err));
+
+
+// Create Apollo/GraphQL Server
 
 const server = new ApolloServer({
   typeDefs,

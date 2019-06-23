@@ -25,6 +25,7 @@ module.exports = {
       }).save();
       return newPost;
     },
+
     signupUser: async (_, { username, email, password }, { User }) => {
       const user = await User.findOne({ username });
       if (user) {
