@@ -33,6 +33,7 @@ type Token {
 
 type Query {
   getPosts: [Post]
+  getUser: [User]
 }
 
 type Mutation {

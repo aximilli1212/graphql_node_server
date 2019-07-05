@@ -11,7 +11,37 @@ Vue.use(VueApollo);
 // Setup AppolloClient
 
 export const defaultClient = new ApolloClient({
-  uri:'http://localhost:4100'
+  uri:'http://localhost:4100',
+  fetchOptions:{
+    credentials: 'include'
+  },
+
+  request: operation =>{
+    //if no token with key of 'token' is in local storage, add it
+    if(!localStorage.token){
+      localStorage.setItem('token','');
+    }
+
+    operation.setContext({
+      headers:{
+        authorization: localStorage.getItem('token')
+      }
+    })
+
+  },
+
+  onError: ({ graphQLErrors, networkError}) =>{
+    if(networkError){
+      console.log('[NetworkError]',networkError);
+    }
+
+    if(graphQLErrors){
+      for(let err of graphQLErrors){
+        console.dir(err);
+      }
+    }
+  }
+
 });
 
 const apolloProvider = new VueApollo({defaultClient});

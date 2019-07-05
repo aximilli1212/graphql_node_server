@@ -16,6 +16,10 @@ module.exports = {
           model: "User"
         });
       return posts;
+    },
+    getUser: async (_, args, { User }) => {
+      const user = await User.find({});
+      return user;
     }
   },
   Mutation: {

@@ -16,6 +16,15 @@ export const GET_POSTS = gql`
 
 // User Queries
 
+export const GET_USERS = gql`
+    query{
+        getUser {
+            _id
+            username
+        }
+    }
+`;
+
 
 
 
