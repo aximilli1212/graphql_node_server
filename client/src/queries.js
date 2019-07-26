@@ -25,6 +25,24 @@ export const GET_USERS = gql`
     }
 `;
 
+export const GET_CURRENT_USER = gql`
+  query{
+      getCurrentUser {
+            _id
+          username
+          email
+          password
+          avatar
+          joinDate
+          favorites{
+              _id
+              title
+              imageUrl
+          }
+      }
+  }
+`;
+
 
 
 

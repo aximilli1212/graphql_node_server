@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import {GET_POSTS,SIGNIN_USER,SIGNUP_USER} from './queries';
+import {GET_POSTS,SIGNIN_USER,SIGNUP_USER,GET_CURRENT_USER} from './queries';
 import { defaultClient as apolloClient } from './main'
 
 
@@ -30,6 +30,23 @@ export default new Vuex.Store({
     }
   },
   actions: {
+      getCurrentUser:({commit,state},payload)=>{
+          commit('setLoading',true);
+
+          apolloClient.query({
+              query: GET_CURRENT_USER
+          }).then(({data})=>{
+              commit('setLoading',false);
+
+              console.log(data.getCurrentUser);
+          }).catch(err=>{
+              commit('setLoading', false);
+              console.log(err);
+          })
+
+
+      },
+
         getPosts:({commit,state},payload)=>{
           commit('setLoading',true);
           //Use Apollo Client to fire getPosts query

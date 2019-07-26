@@ -40,7 +40,7 @@ const getUser = async token =>{
       throw new AuthenticationError("Your Session has ended please SignIn Again. ");
     }
   }
-} 
+}
 
 // Create Apollo/GraphQL Server
 
