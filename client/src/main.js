@@ -11,7 +11,7 @@ Vue.use(VueApollo);
 // Setup AppolloClient
 
 export const defaultClient = new ApolloClient({
-  uri:'http://localhost:4100',
+  uri:'http://localhost:4800',
   fetchOptions:{
     credentials: 'include'
   },
